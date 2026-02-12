@@ -571,7 +571,7 @@
 
         .flip-card {
             width: 100%;
-            height: 350px;
+            height: 450px;
             perspective: 1000px;
             cursor: pointer;
         }
@@ -690,7 +690,7 @@
         /* GALERÍA 4: TABLERO DETECTIVE SIMPLE */
         /* GALERÍA 4: TABLERO DETECTIVE SIMPLE */
         .detective-board-scroll {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto 40px;
             background: rgba(40, 40, 40, 0.8);
             padding: 40px 20px;
@@ -1229,23 +1229,23 @@
     <!-- Pantalla de inicio -->
     <div class="start-screen" id="startScreen">
         <div class="game-title">💕 SAN VALENTÍN 💕</div>
-        <div class="game-subtitle">Amor a distancia</div>
-        <button class="start-button" onclick="startGame()">▶ PRESIONA START</button>
+        <div class="game-subtitle">Claudia</div>
+        <button class="start-button" onclick="startGame()">▶ START</button>
     </div>
 
     <!-- Contenido principal -->
     <div class="container">
         <div class="header">
             <h1>❤️ Feliz San Valentín, Claudia ❤️</h1>
-            <p>Para la persona más especial de mi vida</p>
+            <p>La persona que más quiero en el universo</p>
         </div>
 
         <div class="card">
-            <h2>🎮 Estado de Conexión</h2>
+            <h2>🛰️ Conexión</h2>
             <div class="connection-bar">
                 <div class="connection-label">
-                    <span>🌍 Tu Ubicación</span>
-                    <span>Mi Ubicación 🌍</span>
+                    <span>🌍 Milán</span>
+                    <span>Terrassa 🌍</span>
                 </div>
                 <div class="connection-progress"></div>
                 <div style="text-align: center; margin-top: 10px; color: #e91e63; font-weight: bold;">
@@ -1253,12 +1253,12 @@
                 </div>
             </div>
             <p style="text-align: center; color: #666; margin-top: 15px;">
-                La distancia física no puede romper nuestra conexión del corazón
+                La distancia no puede con nosotros
             </p>
         </div>
 
         <div class="card">
-            <h2>📊 Estadísticas de Nuestra Relación</h2>
+            <h2>📊 Estadísticas</h2>
             <div class="distance-counter">
                 <div class="stat">
                     <span class="stat-number">∞</span>
@@ -1269,13 +1269,10 @@
                     <span class="stat-label">Felicidad</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">0 km</span>
+                    <span class="stat-number">983 km</span>
                     <span class="stat-label">Distancia Real*</span>
                 </div>
             </div>
-            <p style="text-align: center; color: #999; font-size: 14px; margin-top: 10px;">
-                *Porque en mi corazón siempre estás a 0 kilómetros de distancia
-            </p>
         </div>
 
         <div class="love-message">
@@ -1294,9 +1291,9 @@
         <!-- Sección 1: Bob Esponja -->
         <div class="memory-section" id="memory1">
             <h1 class="memory-title">💕 Recuerdos Virtuales 💕</h1>
-            <h2 class="memory-subtitle">🧽 Momento Bob Esponja 🍍</h2>
+            <h2 class="memory-subtitle">🧽🍍</h2>
             <p style="text-align: center; color: white; margin-bottom: 30px; font-size: 18px;">
-                ¡Haz clic en las burbujas para ver los recuerdos! 🫧
+                Clica en las burbujas 🫧
             </p>
             <div class="bubble-container">
                 <div class="bubble" onclick="popBubble(1)">
@@ -1321,9 +1318,9 @@
         <!-- Sección 2: Móvil y Distancia -->
         <div class="memory-section" id="memory2" style="display: none;">
             <h1 class="memory-title">💕 Recuerdos Virtuales 💕</h1>
-            <h2 class="memory-subtitle">📱 Amor a Distancia 💌</h2>
+            <h2 class="memory-subtitle">📱💌</h2>
             <p style="text-align: center; color: white; margin-bottom: 30px; font-size: 18px;">
-                ¡Haz clic en las postales para voltearlas! 💌
+                Dale la vuelta a las postales 💌
             </p>
             <div class="cards-container">
                 <div class="flip-card" onclick="flipCard(1)">
@@ -1380,7 +1377,7 @@
         <!-- Sección 3: Videojuegos -->
         <div class="memory-section" id="memory3" style="display: none;">
             <h1 class="memory-title">💕 Recuerdos Virtuales 💕</h1>
-            <h2 class="memory-subtitle">🎮 Gaming Juntos 👾</h2>
+            <h2 class="memory-subtitle">🎮👾</h2>
             <div class="carousel-container">
                 <button class="carousel-arrow left" onclick="changeSlide(-1)">❮</button>
                 <div class="carousel-slide">
@@ -1398,7 +1395,7 @@
         <!-- Sección 4: Detectives -->
         <div class="memory-section" id="memory4" style="display: none;">
             <h1 class="memory-title">💕 Recuerdos Virtuales 💕</h1>
-            <h2 class="memory-subtitle">🕵️ Misterio y Romance 🔍</h2>
+            <h2 class="memory-subtitle">🕵️🔍</h2>
             <div class="detective-board-scroll">
                 <!-- Foto 1 -->
                 <div class="evidence-item evidence-left">
@@ -1459,8 +1456,8 @@
                 <!-- Botón misterioso -->
                 <div class="mystery-button-container">
                     <button class="mystery-button" id="mysteryButton" onclick="revealFinalClue()">
-                        <span class="mystery-icon">❓❓❓</span>
-                        <span class="mystery-text">¿Última Pista?</span>
+                        <span class="mystery-icon">❔❔❔</span>
+                        <span class="mystery-text">SUS</span>
                     </button>
                 </div>
 
@@ -1482,8 +1479,8 @@
 
         <!-- Sección 5: Regalos en Casa -->
         <div class="memory-section" id="memory5" style="display: none;">
-            <h1 class="memory-title">🎁 ¡Sorpresa! 🎁</h1>
-            <h2 class="memory-subtitle" style="font-size: 28px; margin-bottom: 50px;">Te esperan dos detalles en casa</h2>
+            <h1 class="memory-title">🎁Regalos🎁</h1>
+            <h2 class="memory-subtitle" style="font-size: 28px; margin-bottom: 50px;">Te esperan dos detalles en casa😁😁😁</h2>
             <div class="gifts-container">
                 <div class="big-gift" onclick="showGiftModal(1)">
                     🎁
@@ -1549,9 +1546,6 @@
         <div class="modal-content">
             <span class="close-modal" onclick="closeGiftModal(1)">&times;</span>
             <div style="font-size: 120px; margin: 20px 0;">❓</div>
-            <p style="font-size: 24px; color: #e91e63; font-weight: bold;">
-                ¡Sorpresa esperándote en casa!
-            </p>
         </div>
     </div>
 
@@ -1560,9 +1554,6 @@
         <div class="modal-content">
             <span class="close-modal" onclick="closeGiftModal(2)">&times;</span>
             <div style="font-size: 120px; margin: 20px 0;">❓</div>
-            <p style="font-size: 24px; color: #e91e63; font-weight: bold;">
-                ¡Sorpresa esperándote en casa!
-            </p>
         </div>
     </div>
 
