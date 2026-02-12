@@ -1220,6 +1220,33 @@
                 height: 400px;              /* Aumentamos la altura para que no se vea "aplastada" al ser más ancha */
                 margin: 0 auto;
             }
+            
+            /* --- Responsive para tablero de Detectives --- */
+            .detective-board-scroll {
+                padding: 10px 5px; /* Menos espacio a los lados del tablero */
+                width: 100%;
+            }
+
+            .evidence-frame {
+                width: 90vw !important; /* Fuerza a que el cuadro negro ocupe el 90% del ancho de la pantalla */
+                max-width: none;        /* Elimina límites anteriores */
+                margin: 20px auto;      /* Centra las fotos */
+                padding: 10px;          /* Espesor del marco negro */
+            }
+
+            .evidence-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-left: 0 !important;   /* Elimina el zigzag en móvil para ganar ancho */
+                margin-right: 0 !important;
+                width: 100%;
+            }
+
+            .evidence-frame img {
+                width: 100%;            /* La foto ocupa todo el ancho del cuadro negro */
+                height: auto;           /* No se deforma */
+            }
 
             .reveal-icon {
                 font-size: 50px;
