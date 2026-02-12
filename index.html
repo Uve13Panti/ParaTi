@@ -1255,29 +1255,50 @@
 
 
 
-            
+            /* --- Responsive para Carousel (Botones Flotantes) --- */
             .carousel-container {
-                gap: 5px; /* Pegamos las flechas a la imagen */
-                padding: 0;
+                position: relative; /* Necesario para que los botones no se salgan del bloque */
                 width: 100%;
+                margin: 0 auto 20px;
+                display: block; /* Quitamos flex para que la imagen mande */
             }
 
             .carousel-image {
-                height: 350px; /* Ajustamos la altura para que no quede gigantesta */
-                max-width: 100%; /* Que use todo el ancho que le dejen las flechas */
-                border-width: 3px; /* Marco un poco más fino para ganar espacio */
+                width: 100%;       /* ¡Ahora sí! Ocupa todo el ancho */
+                height: 350px;     /* Altura fija para que se vea bien */
+                max-width: none;   /* Sin límites */
+                border-radius: 0;  /* Opcional: bordes rectos para aprovechar al máximo */
+                border: none;      /* Quitamos el borde blanco grueso para ganar espacio */
+            }
+
+            .carousel-slide {
+                width: 100%;       /* Aseguramos que el slide ocupe todo */
             }
 
             .carousel-arrow {
-                width: 40px;  /* Botones más pequeños (antes 60px) */
+                position: absolute; /* La clave: los sacamos del flujo normal */
+                top: 50%;           /* Los centramos verticalmente */
+                transform: translateY(-50%); /* Ajuste fino del centro */
+                z-index: 10;        /* Para que estén ENCIMA de la foto */
+                
+                width: 40px;
                 height: 40px;
-                font-size: 20px; /* Flecha más pequeña */
-                flex-shrink: 0;  /* Evita que los botones se aplasten */
+                font-size: 20px;
+                background: rgba(255, 107, 157, 0.8); /* Un poco transparente */
+                border: 2px solid white;
             }
 
-            .carousel-caption {
-                font-size: 18px; /* Texto un poco más acorde al móvil */
+            /* Botón Izquierdo (asumiendo que es el primero en tu HTML) */
+            .carousel-arrow:first-child {
+                left: 10px; /* Pegado a la izquierda */
             }
+
+            /* Botón Derecho (asumiendo que es el último en tu HTML) */
+            .carousel-arrow:last-child {
+                right: 10px; /* Pegado a la derecha */
+            }
+
+            
         }
     </style>
 </head>
@@ -1727,7 +1748,7 @@
         // GALERÍA 3: Carousel de imágenes
         let currentSlide = 0;
         const gameImages = [
-            'imagenes/juego1.PNG',
+            'imagenes/juego1.jpg',
             'imagenes/juego2.PNG',
             'imagenes/juego3.PNG',
             'imagenes/juego4.PNG',
