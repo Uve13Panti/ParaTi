@@ -1251,6 +1251,33 @@
             .reveal-icon {
                 font-size: 50px;
             }
+
+
+
+
+            
+            .carousel-container {
+                gap: 5px; /* Pegamos las flechas a la imagen */
+                padding: 0;
+                width: 100%;
+            }
+
+            .carousel-image {
+                height: 350px; /* Ajustamos la altura para que no quede gigantesta */
+                max-width: 100%; /* Que use todo el ancho que le dejen las flechas */
+                border-width: 3px; /* Marco un poco más fino para ganar espacio */
+            }
+
+            .carousel-arrow {
+                width: 40px;  /* Botones más pequeños (antes 60px) */
+                height: 40px;
+                font-size: 20px; /* Flecha más pequeña */
+                flex-shrink: 0;  /* Evita que los botones se aplasten */
+            }
+
+            .carousel-caption {
+                font-size: 18px; /* Texto un poco más acorde al móvil */
+            }
         }
     </style>
 </head>
