@@ -347,7 +347,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
             overflow-y: auto;
             z-index: 1500;
             padding: 20px;
@@ -630,162 +630,399 @@
             object-fit: cover;
         }
 
-        /* GALERÍA 3: NIVELES DE JUEGO */
-        .game-levels-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-            padding: 20px;
-        }
-
-        .game-level {
+        /* GALERÍA 3: CAROUSEL SIMPLE */
+        .carousel-container {
             position: relative;
-            height: 320px;
-            cursor: pointer;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .level-lock {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #434343 0%, #000000 100%);
+            max-width: 800px;
+            margin: 0 auto 40px;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 2;
-            transition: all 0.6s ease;
+            gap: 20px;
         }
 
-        .lock-icon {
-            font-size: 80px;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+        .carousel-slide {
+            flex: 1;
+            text-align: center;
         }
 
-        .level-lock p {
-            color: #FFD700;
-            font-size: 24px;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-            font-family: 'Courier New', monospace;
-        }
-
-        .level-lock.unlocked {
-            opacity: 0;
-            transform: scale(1.5);
-            pointer-events: none;
-        }
-
-        .level-photo {
+        .carousel-image {
             width: 100%;
-            height: 100%;
+            max-width: 600px;
+            height: 400px;
             object-fit: cover;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.6s ease 0.3s;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            border: 5px solid white;
         }
 
-        .level-photo.revealed {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* GALERÍA 4: POLAROIDS DETECTIVE */
-        .polaroid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-            padding: 20px;
-        }
-
-        .polaroid {
-            background: white;
-            padding: 15px;
-            padding-bottom: 50px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transform: rotate(-2deg);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .polaroid:nth-child(even) {
-            transform: rotate(2deg);
-        }
-
-        .polaroid:hover {
-            transform: rotate(0deg) translateY(-10px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-            z-index: 10;
-        }
-
-        .polaroid-inner {
-            position: relative;
-            width: 100%;
-            height: 280px;
-            overflow: hidden;
-        }
-
-        .polaroid-cover {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
-            transition: opacity 0.5s ease;
-        }
-
-        .polaroid:hover .polaroid-cover {
-            opacity: 0;
-        }
-
-        .reveal-icon {
-            font-size: 60px;
-            margin-bottom: 10px;
-            animation: magnify 2s infinite;
-        }
-
-        .polaroid-cover p {
-            color: #FFD700;
-            font-size: 18px;
+        .carousel-caption {
+            margin-top: 20px;
+            color: white;
+            font-size: 22px;
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .polaroid-inner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .polaroid-caption {
-            margin-top: 15px;
-            text-align: center;
-            font-family: 'Courier New', monospace;
-            font-size: 16px;
-            color: #333;
+        .carousel-arrow {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c770f0 100%);
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 32px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+            transition: all 0.3s;
             font-weight: bold;
         }
 
-        @keyframes magnify {
+        .carousel-arrow:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.7);
+        }
+
+        .carousel-arrow:active {
+            transform: scale(0.95);
+        }
+
+        /* GALERÍA 4: TABLERO DETECTIVE SIMPLE */
+        /* GALERÍA 4: TABLERO DETECTIVE SIMPLE */
+        .detective-board-scroll {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            background: rgba(40, 40, 40, 0.8);
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .evidence-item {
+            position: relative;
+            margin: 40px 0;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .evidence-left {
+            margin-left: 0;
+            margin-right: auto;
+            width: 70%;
+        }
+
+        .evidence-right {
+            margin-left: auto;
+            margin-right: 0;
+            width: 70%;
+        }
+
+        .evidence-center {
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+        }
+
+        .evidence-pin {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            z-index: 10;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+        }
+
+        .evidence-frame {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            transform: rotate(-2deg);
+            transition: all 0.3s;
+        }
+
+        .evidence-right .evidence-frame {
+            transform: rotate(2deg);
+        }
+
+        .evidence-frame:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .evidence-frame img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .evidence-special {
+            border: 5px solid #FFD700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+        }
+
+        .mystery-button-container {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .mystery-button {
+            background: linear-gradient(135deg, #dc3545 0%, #c0392b 100%);
+            border: 5px solid #FFD700;
+            padding: 25px 50px;
+            border-radius: 50px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 15px 40px rgba(220, 53, 69, 0.6),
+                        0 0 30px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mystery-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 20px 50px rgba(220, 53, 69, 0.8),
+                        0 0 50px rgba(255, 215, 0, 0.6);
+        }
+
+        .mystery-button:active {
+            transform: scale(0.95);
+        }
+
+        .mystery-icon {
+            display: block;
+            font-size: 40px;
+            margin-bottom: 10px;
+            animation: pulse 1.5s infinite;
+        }
+
+        .mystery-text {
+            display: block;
+        }
+
+        .final-clue {
+            animation: revealFinal 1s ease;
+        }
+
+        @keyframes revealFinal {
+            from {
+                opacity: 0;
+                transform: scale(0.8) rotateY(90deg);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) rotateY(0deg);
+            }
+        }
+
+        /* PANTALLA 5: REGALOS EN CASA */
+        .gifts-container {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            flex-wrap: wrap;
+            margin: 60px 0;
+        }
+
+        .big-gift {
+            font-size: 200px;
+            cursor: pointer;
+            transition: all 0.3s;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+            animation: bounce 2s infinite;
+        }
+
+        .big-gift:hover {
+            transform: scale(1.1) rotate(5deg);
+            filter: drop-shadow(0 30px 60px rgba(255, 107, 157, 0.5));
+        }
+
+        .big-gift:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes bounce {
             0%, 100% {
-                transform: scale(1);
+                transform: translateY(0);
             }
             50% {
-                transform: scale(1.2);
+                transform: translateY(-20px);
+            }
+        }
+
+        /* PANTALLA 6: MENSAJE FINAL */
+        .final-screen {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+            overflow-y: auto !important;
+            z-index: 1600 !important;
+            padding: 20px !important;
+        }
+        .hearts-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 40px;
+            animation: floatHeart 8s infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .final-message-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-title {
+            font-size: 80px;
+            color: #fff;
+            text-shadow: 0 0 30px rgba(255, 107, 157, 0.8),
+                         0 0 60px rgba(255, 107, 157, 0.6),
+                         3px 3px 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 30px rgba(255, 107, 157, 0.8),
+                             0 0 60px rgba(255, 107, 157, 0.6),
+                             3px 3px 10px rgba(0, 0, 0, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 40px rgba(255, 107, 157, 1),
+                             0 0 80px rgba(255, 107, 157, 0.8),
+                             3px 3px 10px rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        .final-photo-frame {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            padding: 40px;
+            background: linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+                        inset 0 0 30px rgba(233, 30, 99, 0.1);
+        }
+
+        .frame-decoration {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c770f0 100%);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .frame-top-left {
+            top: -20px;
+            left: -20px;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+        }
+
+        .frame-top-right {
+            top: -20px;
+            right: -20px;
+            box-shadow: 0 10px 30px rgba(199, 112, 240, 0.5);
+            animation-delay: 0.5s;
+        }
+
+        .frame-bottom-left {
+            bottom: -20px;
+            left: -20px;
+            box-shadow: 0 10px 30px rgba(199, 112, 240, 0.5);
+            animation-delay: 1s;
+        }
+
+        .frame-bottom-right {
+            bottom: -20px;
+            right: -20px;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+            animation-delay: 1.5s;
+        }
+
+        .final-photo {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .final-title-love {
+            font-size: 100px;
+            color: #ff6b9d;
+            text-shadow: 0 0 20px #ff6b9d, 
+                         0 0 40px #ff6b9d,
+                         0 0 60px #ff6b9d,
+                         0 0 80px #ff6b9d;
+            margin-bottom: 60px;
+            animation: pulse-love 2s infinite;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        @keyframes pulse-love {
+            0%, 100% {
+                transform: scale(1);
+                text-shadow: 0 0 20px #ff6b9d, 
+                             0 0 40px #ff6b9d,
+                             0 0 60px #ff6b9d,
+                             0 0 80px #ff6b9d;
+            }
+            50% {
+                transform: scale(1.05);
+                text-shadow: 0 0 30px #ff6b9d, 
+                             0 0 60px #ff6b9d,
+                             0 0 90px #ff6b9d,
+                             0 0 120px #ff6b9d;
             }
         }
 
@@ -1066,13 +1303,13 @@
                     <div class="bubble-content" id="bubble1">
                         <span class="bubble-icon">🫧</span>
                     </div>
-                    <img src="imagenes/bob1.jpg" alt="Recuerdo Bob Esponja 1" class="bubble-photo" id="bubblePhoto1">
+                    <img src="imagenes/bob1.png" alt="Recuerdo Bob Esponja 1" class="bubble-photo" id="bubblePhoto1">
                 </div>
                 <div class="bubble" onclick="popBubble(2)">
                     <div class="bubble-content" id="bubble2">
                         <span class="bubble-icon">🫧</span>
                     </div>
-                    <img src="imagenes/bob2.jpg" alt="Recuerdo Bob Esponja 2" class="bubble-photo" id="bubblePhoto2">
+                    <img src="imagenes/bob2.png" alt="Recuerdo Bob Esponja 2" class="bubble-photo" id="bubblePhoto2">
                 </div>
             </div>
             <div class="nav-buttons">
@@ -1096,7 +1333,7 @@
                             <p>Recuerdo 1</p>
                         </div>
                         <div class="flip-card-back">
-                            <img src="imagenes/distancia1.jpg" alt="Recuerdo Distancia 1">
+                            <img src="imagenes/distancia1.png" alt="Recuerdo Distancia 1">
                         </div>
                     </div>
                 </div>
@@ -1107,7 +1344,7 @@
                             <p>Recuerdo 2</p>
                         </div>
                         <div class="flip-card-back">
-                            <img src="imagenes/distancia2.jpg" alt="Recuerdo Distancia 2">
+                            <img src="imagenes/distancia2.png" alt="Recuerdo Distancia 2">
                         </div>
                     </div>
                 </div>
@@ -1118,7 +1355,7 @@
                             <p>Recuerdo 3</p>
                         </div>
                         <div class="flip-card-back">
-                            <img src="imagenes/distancia3.jpg" alt="Recuerdo Distancia 3">
+                            <img src="imagenes/distancia3.png" alt="Recuerdo Distancia 3">
                         </div>
                     </div>
                 </div>
@@ -1129,7 +1366,7 @@
                             <p>Recuerdo 4</p>
                         </div>
                         <div class="flip-card-back">
-                            <img src="imagenes/distancia4.jpg" alt="Recuerdo Distancia 4">
+                            <img src="imagenes/distancia4.png" alt="Recuerdo Distancia 4">
                         </div>
                     </div>
                 </div>
@@ -1144,52 +1381,13 @@
         <div class="memory-section" id="memory3" style="display: none;">
             <h1 class="memory-title">💕 Recuerdos Virtuales 💕</h1>
             <h2 class="memory-subtitle">🎮 Gaming Juntos 👾</h2>
-            <p style="text-align: center; color: white; margin-bottom: 30px; font-size: 18px;">
-                ¡Haz clic en cada nivel para desbloquearlo! 🎮
-            </p>
-            <div class="game-levels-container">
-                <div class="game-level" onclick="unlockLevel(1)">
-                    <div class="level-lock" id="lock1">
-                        <span class="lock-icon">🔒</span>
-                        <p>NIVEL 1</p>
-                    </div>
-                    <img src="imagenes/juego1.jpg" alt="Recuerdo Juego 1" class="level-photo" id="levelPhoto1">
+            <div class="carousel-container">
+                <button class="carousel-arrow left" onclick="changeSlide(-1)">❮</button>
+                <div class="carousel-slide">
+                    <img src="imagenes/juego1.png" alt="Recuerdo Gaming 1" class="carousel-image" id="carouselImage">
+                    <div class="carousel-caption" id="carouselCaption">Recuerdo 1 de 6</div>
                 </div>
-                <div class="game-level" onclick="unlockLevel(2)">
-                    <div class="level-lock" id="lock2">
-                        <span class="lock-icon">🔒</span>
-                        <p>NIVEL 2</p>
-                    </div>
-                    <img src="imagenes/juego2.jpg" alt="Recuerdo Juego 2" class="level-photo" id="levelPhoto2">
-                </div>
-                <div class="game-level" onclick="unlockLevel(3)">
-                    <div class="level-lock" id="lock3">
-                        <span class="lock-icon">🔒</span>
-                        <p>NIVEL 3</p>
-                    </div>
-                    <img src="imagenes/juego3.jpg" alt="Recuerdo Juego 3" class="level-photo" id="levelPhoto3">
-                </div>
-                <div class="game-level" onclick="unlockLevel(4)">
-                    <div class="level-lock" id="lock4">
-                        <span class="lock-icon">🔒</span>
-                        <p>NIVEL 4</p>
-                    </div>
-                    <img src="imagenes/juego4.jpg" alt="Recuerdo Juego 4" class="level-photo" id="levelPhoto4">
-                </div>
-                <div class="game-level" onclick="unlockLevel(5)">
-                    <div class="level-lock" id="lock5">
-                        <span class="lock-icon">🔒</span>
-                        <p>NIVEL 5</p>
-                    </div>
-                    <img src="imagenes/juego5.jpg" alt="Recuerdo Juego 5" class="level-photo" id="levelPhoto5">
-                </div>
-                <div class="game-level" onclick="unlockLevel(6)">
-                    <div class="level-lock" id="lock6">
-                        <span class="lock-icon">🔒</span>
-                        <p>NIVEL 6</p>
-                    </div>
-                    <img src="imagenes/juego6.jpg" alt="Recuerdo Juego 6" class="level-photo" id="levelPhoto6">
-                </div>
+                <button class="carousel-arrow right" onclick="changeSlide(1)">❯</button>
             </div>
             <div class="nav-buttons">
                 <button class="nav-button" onclick="nextMemory(2)">← Anterior</button>
@@ -1201,93 +1399,131 @@
         <div class="memory-section" id="memory4" style="display: none;">
             <h1 class="memory-title">💕 Recuerdos Virtuales 💕</h1>
             <h2 class="memory-subtitle">🕵️ Misterio y Romance 🔍</h2>
-            <p style="text-align: center; color: white; margin-bottom: 30px; font-size: 18px;">
-                ¡Pasa el mouse sobre las fotos para revelar las pistas! 🔍
-            </p>
-            <div class="polaroid-container">
-                <div class="polaroid">
-                    <div class="polaroid-inner">
-                        <div class="polaroid-cover">
-                            <span class="reveal-icon">🔍</span>
-                            <p>Pista #1</p>
-                        </div>
-                        <img src="imagenes/detective1.jpg" alt="Pista Detective 1">
+            <div class="detective-board-scroll">
+                <!-- Foto 1 -->
+                <div class="evidence-item evidence-left">
+                    <div class="evidence-pin">📌</div>
+                    <div class="evidence-frame">
+                        <img src="imagenes/detective1.png" alt="Evidencia 1">
                     </div>
-                    <div class="polaroid-caption">Evidencia 001</div>
                 </div>
-                <div class="polaroid">
-                    <div class="polaroid-inner">
-                        <div class="polaroid-cover">
-                            <span class="reveal-icon">🔍</span>
-                            <p>Pista #2</p>
-                        </div>
-                        <img src="imagenes/detective2.jpg" alt="Pista Detective 2">
+
+                <!-- Foto 2 -->
+                <div class="evidence-item evidence-right">
+                    <div class="evidence-pin">📌</div>
+                    <div class="evidence-frame">
+                        <img src="imagenes/detective2.png" alt="Evidencia 2">
                     </div>
-                    <div class="polaroid-caption">Evidencia 002</div>
                 </div>
-                <div class="polaroid">
-                    <div class="polaroid-inner">
-                        <div class="polaroid-cover">
-                            <span class="reveal-icon">🔍</span>
-                            <p>Pista #3</p>
-                        </div>
-                        <img src="imagenes/detective3.jpg" alt="Pista Detective 3">
+
+                <!-- Foto 3 -->
+                <div class="evidence-item evidence-left">
+                    <div class="evidence-pin">📌</div>
+                    <div class="evidence-frame">
+                        <img src="imagenes/detective3.png" alt="Evidencia 3">
                     </div>
-                    <div class="polaroid-caption">Evidencia 003</div>
                 </div>
-                <div class="polaroid">
-                    <div class="polaroid-inner">
-                        <div class="polaroid-cover">
-                            <span class="reveal-icon">🔍</span>
-                            <p>Pista #4</p>
-                        </div>
-                        <img src="imagenes/detective4.jpg" alt="Pista Detective 4">
+
+                <!-- Foto 4 -->
+                <div class="evidence-item evidence-right">
+                    <div class="evidence-pin">📌</div>
+                    <div class="evidence-frame">
+                        <img src="imagenes/detective4.png" alt="Evidencia 4">
                     </div>
-                    <div class="polaroid-caption">Evidencia 004</div>
                 </div>
-                <div class="polaroid">
-                    <div class="polaroid-inner">
-                        <div class="polaroid-cover">
-                            <span class="reveal-icon">🔍</span>
-                            <p>Pista #5</p>
-                        </div>
-                        <img src="imagenes/detective5.jpg" alt="Pista Detective 5">
+
+                <!-- Foto 5 -->
+                <div class="evidence-item evidence-left">
+                    <div class="evidence-pin">📌</div>
+                    <div class="evidence-frame">
+                        <img src="imagenes/detective5.png" alt="Evidencia 5">
                     </div>
-                    <div class="polaroid-caption">Evidencia 005</div>
                 </div>
-                <div class="polaroid">
-                    <div class="polaroid-inner">
-                        <div class="polaroid-cover">
-                            <span class="reveal-icon">🔍</span>
-                            <p>Pista #6</p>
-                        </div>
-                        <img src="imagenes/detective6.jpg" alt="Pista Detective 6">
+
+                <!-- Foto 6 -->
+                <div class="evidence-item evidence-right">
+                    <div class="evidence-pin">📌</div>
+                    <div class="evidence-frame">
+                        <img src="imagenes/detective6.png" alt="Evidencia 6">
                     </div>
-                    <div class="polaroid-caption">Evidencia 006</div>
                 </div>
-                <div class="polaroid">
-                    <div class="polaroid-inner">
-                        <div class="polaroid-cover">
-                            <span class="reveal-icon">🔍</span>
-                            <p>Pista #7</p>
-                        </div>
-                        <img src="imagenes/detective7.jpg" alt="Pista Detective 7">
+
+                <!-- Foto 7 -->
+                <div class="evidence-item evidence-left">
+                    <div class="evidence-pin">📌</div>
+                    <div class="evidence-frame">
+                        <img src="imagenes/detective7.png" alt="Evidencia 7">
                     </div>
-                    <div class="polaroid-caption">Evidencia 007</div>
                 </div>
-                <div class="polaroid">
-                    <div class="polaroid-inner">
-                        <div class="polaroid-cover">
-                            <span class="reveal-icon">🔍</span>
-                            <p>Pista #8</p>
+
+                <!-- Botón misterioso -->
+                <div class="mystery-button-container">
+                    <button class="mystery-button" id="mysteryButton" onclick="revealFinalClue()">
+                        <span class="mystery-icon">❓❓❓</span>
+                        <span class="mystery-text">¿Última Pista?</span>
+                    </button>
+                </div>
+
+                <!-- Foto final oculta -->
+                <div class="final-clue" id="finalClue" style="display: none;">
+                    <div class="evidence-item evidence-center">
+                        <div class="evidence-pin">📌</div>
+                        <div class="evidence-frame evidence-special">
+                            <img src="imagenes/detective8.png" alt="Pista Final">
                         </div>
-                        <img src="imagenes/detective8.jpg" alt="Pista Detective 8">
                     </div>
-                    <div class="polaroid-caption">Evidencia 008</div>
                 </div>
             </div>
             <div class="nav-buttons">
                 <button class="nav-button" onclick="nextMemory(3)">← Anterior</button>
+                <button class="nav-button" onclick="nextMemory(5)">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- Sección 5: Regalos en Casa -->
+        <div class="memory-section" id="memory5" style="display: none;">
+            <h1 class="memory-title">🎁 ¡Sorpresa! 🎁</h1>
+            <h2 class="memory-subtitle" style="font-size: 28px; margin-bottom: 50px;">Te esperan dos detalles en casa</h2>
+            <div class="gifts-container">
+                <div class="big-gift" onclick="showGiftModal(1)">
+                    🎁
+                </div>
+                <div class="big-gift" onclick="showGiftModal(2)">
+                    🎁
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="nextMemory(4)">← Anterior</button>
+                <button class="nav-button" onclick="nextMemory(6)">Siguiente →</button>
+            </div>
+        </div>
+
+        <!-- Sección 6: Mensaje Final -->
+        <div class="memory-section final-screen" id="memory6" style="display: none;">
+            <div class="hearts-background">
+                <div class="floating-heart" style="left: 10%; animation-delay: 0s;">💕</div>
+                <div class="floating-heart" style="left: 20%; animation-delay: 1s;">❤️</div>
+                <div class="floating-heart" style="left: 30%; animation-delay: 2s;">💖</div>
+                <div class="floating-heart" style="left: 40%; animation-delay: 0.5s;">💗</div>
+                <div class="floating-heart" style="left: 50%; animation-delay: 1.5s;">💕</div>
+                <div class="floating-heart" style="left: 60%; animation-delay: 2.5s;">❤️</div>
+                <div class="floating-heart" style="left: 70%; animation-delay: 1s;">💖</div>
+                <div class="floating-heart" style="left: 80%; animation-delay: 0s;">💗</div>
+                <div class="floating-heart" style="left: 90%; animation-delay: 2s;">💕</div>
+            </div>
+            <div class="final-message-container">
+                <h1 class="final-title-love">Te Quiero</h1>
+                <div class="final-photo-frame">
+                    <div class="frame-decoration frame-top-left"></div>
+                    <div class="frame-decoration frame-top-right"></div>
+                    <div class="frame-decoration frame-bottom-left"></div>
+                    <div class="frame-decoration frame-bottom-right"></div>
+                    <img src="imagenes/nosotros.png" alt="Nuestra Foto" class="final-photo">
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="nextMemory(5)">← Anterior</button>
+                <button class="nav-button" onclick="backToStart()">🏠 Volver al Inicio</button>
             </div>
         </div>
     </div>
@@ -1304,6 +1540,28 @@
             </p>
             <p style="font-size: 24px; margin-top: 20px; color: #e91e63;">
                 ¡Te amo, Claudia! 💕
+            </p>
+        </div>
+    </div>
+
+    <!-- Modal de regalo 1 -->
+    <div class="modal" id="giftModal1">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeGiftModal(1)">&times;</span>
+            <div style="font-size: 120px; margin: 20px 0;">❓</div>
+            <p style="font-size: 24px; color: #e91e63; font-weight: bold;">
+                ¡Sorpresa esperándote en casa!
+            </p>
+        </div>
+    </div>
+
+    <!-- Modal de regalo 2 -->
+    <div class="modal" id="giftModal2">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeGiftModal(2)">&times;</span>
+            <div style="font-size: 120px; margin: 20px 0;">❓</div>
+            <p style="font-size: 24px; color: #e91e63; font-weight: bold;">
+                ¡Sorpresa esperándote en casa!
             </p>
         </div>
     </div>
@@ -1350,9 +1608,12 @@
             document.getElementById('memoriesScreen').classList.add('active');
             document.getElementById('memory1').style.display = 'block';
             // Ocultar otras secciones
-            for (let i = 2; i <= 4; i++) {
+            for (let i = 2; i <= 6; i++) {
                 document.getElementById('memory' + i).style.display = 'none';
             }
+            // Reiniciar galerías 1 y 2
+            resetGallery1();
+            resetGallery2();
             // Scroll al inicio
             document.getElementById('memoriesScreen').scrollTop = 0;
         }
@@ -1361,15 +1622,35 @@
             document.getElementById('memoriesScreen').classList.remove('active');
         }
 
+        function backToStart() {
+            document.getElementById('memoriesScreen').classList.remove('active');
+            document.getElementById('startScreen').style.display = 'flex';
+            document.getElementById('startScreen').classList.remove('hidden');
+        }
+
         function nextMemory(sectionNumber) {
             // Ocultar todas las secciones
-            for (let i = 1; i <= 4; i++) {
+            for (let i = 1; i <= 6; i++) {
                 document.getElementById('memory' + i).style.display = 'none';
             }
             // Mostrar la sección seleccionada
             document.getElementById('memory' + sectionNumber).style.display = 'block';
+            
+            // Reiniciar galerías si volvemos a ellas
+            if (sectionNumber === 1) resetGallery1();
+            if (sectionNumber === 2) resetGallery2();
+            if (sectionNumber === 4) resetGallery4();
+            
             // Scroll al inicio
             document.getElementById('memoriesScreen').scrollTop = 0;
+        }
+
+        // GALERÍA 1: Resetear burbujas
+        function resetGallery1() {
+            document.getElementById('bubble1').classList.remove('hidden');
+            document.getElementById('bubble2').classList.remove('hidden');
+            document.getElementById('bubblePhoto1').classList.remove('popped');
+            document.getElementById('bubblePhoto2').classList.remove('popped');
         }
 
         // GALERÍA 1: Función para explotar burbujas
@@ -1383,21 +1664,66 @@
             }, 300);
         }
 
+        // GALERÍA 2: Resetear cartas
+        function resetGallery2() {
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById('flipCard' + i).classList.remove('flipped');
+            }
+        }
+
         // GALERÍA 2: Función para voltear cartas
         function flipCard(cardNum) {
             const card = document.getElementById('flipCard' + cardNum);
             card.classList.toggle('flipped');
         }
 
-        // GALERÍA 3: Función para desbloquear niveles
-        function unlockLevel(levelNum) {
-            const lock = document.getElementById('lock' + levelNum);
-            const photo = document.getElementById('levelPhoto' + levelNum);
+        // GALERÍA 3: Carousel de imágenes
+        let currentSlide = 0;
+        const gameImages = [
+            'imagenes/juego1.png',
+            'imagenes/juego2.png',
+            'imagenes/juego3.png',
+            'imagenes/juego4.png',
+            'imagenes/juego5.png',
+            'imagenes/juego6.png'
+        ];
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = gameImages.length - 1;
+            if (currentSlide >= gameImages.length) currentSlide = 0;
             
-            lock.classList.add('unlocked');
+            document.getElementById('carouselImage').src = gameImages[currentSlide];
+            document.getElementById('carouselCaption').textContent = `Recuerdo ${currentSlide + 1} de ${gameImages.length}`;
+        }
+
+        // GALERÍA 4: Resetear botón misterioso
+        function resetGallery4() {
+            document.getElementById('finalClue').style.display = 'none';
+            document.getElementById('mysteryButton').style.display = 'block';
+        }
+
+        // GALERÍA 4: Revelar pista final
+        function revealFinalClue() {
+            const finalClue = document.getElementById('finalClue');
+            const button = document.getElementById('mysteryButton');
+            
+            finalClue.style.display = 'block';
+            button.style.display = 'none';
+            
+            // Scroll suave hacia la pista final
             setTimeout(() => {
-                photo.classList.add('revealed');
-            }, 300);
+                finalClue.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+
+        // PANTALLA 5: Mostrar modal de regalo
+        function showGiftModal(giftNum) {
+            document.getElementById('giftModal' + giftNum).classList.add('active');
+        }
+
+        function closeGiftModal(giftNum) {
+            document.getElementById('giftModal' + giftNum).classList.remove('active');
         }
 
         // Iniciar animaciones
@@ -1407,6 +1733,18 @@
         document.getElementById('secretModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeSecret();
+            }
+        });
+
+        document.getElementById('giftModal1').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeGiftModal(1);
+            }
+        });
+
+        document.getElementById('giftModal2').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeGiftModal(2);
             }
         });
     </script>
