@@ -1173,7 +1173,7 @@
             }
 
             .bubble {
-                width: 250px;
+                width: 300px;
                 height: 250px;
             }
 
@@ -1212,11 +1212,13 @@
             /* Responsive para polaroids */
             .polaroid-container {
                 grid-template-columns: 1fr;
-                padding: 10px;
+                padding: 10px 5px;
             }
 
             .polaroid-inner {
-                height: 250px;
+                width: 95%;                 /* Obligamos a que use casi todo el ancho disponible */
+                height: 400px;              /* Aumentamos la altura para que no se vea "aplastada" al ser más ancha */
+                margin: 0 auto;
             }
 
             .reveal-icon {
