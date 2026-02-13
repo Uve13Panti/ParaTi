@@ -1304,7 +1304,7 @@
 </head>
 <body>
     <!-- Audio de fondo en bucle -->
-    <audio id="backgroundMusic" loop>
+    <audio id="backgroundMusic" loop autoplay>
         <source src="tu-cancion.mp3" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
     </audio>
@@ -1648,6 +1648,11 @@
             });
         }
 
+        // Intentar reproducir inmediatamente al cargar la página
+        window.addEventListener('load', function() {
+            playMusic();
+        });
+
         // Pantalla de inicio
         function startGame() {
             const startScreen = document.getElementById('startScreen');
@@ -1656,11 +1661,11 @@
                 startScreen.style.display = 'none';
             }, 500);
             
-            // Intentar reproducir la música al iniciar
+            // Asegurar que la música esté sonando
             playMusic();
         }
 
-        // Intentar reproducir al hacer clic en cualquier parte
+        // Intentar reproducir al hacer el primer clic
         document.addEventListener('click', function() {
             if (backgroundMusic.paused) {
                 playMusic();
