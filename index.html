@@ -1303,12 +1303,18 @@
     </style>
 </head>
 <body>
+    <!-- Audio de fondo en bucle -->
+    <audio id="backgroundMusic" loop>
+        <source src="tu-cancion.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
     <!-- Pantalla de inicio -->
     <div class="start-screen" id="startScreen">
         <div class="game-title">💕 SAN VALENTÍN 💕</div>
         <div class="game-subtitle">Claudia</div>
         <button class="start-button" onclick="startGame()">▶ START</button>
-        <div class="game-subtitle">De Uvén</div>
+        <div style="font-size: 16px; color: #c770f0; margin-top: 40px;">De Uvén</div>
     </div>
 
     <!-- Contenido principal -->
@@ -1632,6 +1638,16 @@
     </div>
 
     <script>
+        // Reproducir música automáticamente
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        
+        // Intentar reproducir cuando el usuario interactúe con la página
+        function playMusic() {
+            backgroundMusic.play().catch(error => {
+                console.log('No se pudo reproducir automáticamente:', error);
+            });
+        }
+
         // Pantalla de inicio
         function startGame() {
             const startScreen = document.getElementById('startScreen');
@@ -1639,7 +1655,17 @@
             setTimeout(() => {
                 startScreen.style.display = 'none';
             }, 500);
+            
+            // Intentar reproducir la música al iniciar
+            playMusic();
         }
+
+        // Intentar reproducir al hacer clic en cualquier parte
+        document.addEventListener('click', function() {
+            if (backgroundMusic.paused) {
+                playMusic();
+            }
+        }, { once: true });
 
         // Crear corazones flotantes
         function createHearts() {
